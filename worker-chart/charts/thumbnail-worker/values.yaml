@@ -1,0 +1,14 @@
+namespace: default
+replicaCount: 1
+image:
+  repository: 192.168.45.131:8080/image-project/validation-worker
+  tag: latest
+  pullPolicy: Always
+imagePullSecrets: ["regcred"]
+service:
+  name: thumbnail-worker
+  type: ClusterIP
+  port: 80
+gateway:
+  parentGatewayName: cilium-gateway
+  pathMatch: /worker/thumbnail-worker

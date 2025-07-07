@@ -1,0 +1,15 @@
+apiVersion: v2
+name: worker-chart
+version: 0.1.0
+description: An umbrella chart including validation-worker, ocr-worker, thumbnail-worker
+
+dependencies:
+  - name: validation-worker
+    version: 1.0.0
+    repository: "file://charts/validation-worker"
+  - name: ocr-worker
+    version: 1.0.0
+    repository: "file://charts/ocr-worker"
+  - name: thumbnail-worker
+    version: 1.0.0
+    repository: "file://charts/thumbnail-worker"

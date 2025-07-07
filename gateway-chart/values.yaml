@@ -1,0 +1,6 @@
+gateway:
+  name: cilium-gateway
+  namespace: default
+  className: cilium
+  hostname: "*.example.com"
+  port: 80

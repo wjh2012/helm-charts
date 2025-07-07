@@ -1,0 +1,46 @@
+namespace: default
+
+validation-worker:
+  replicaCount: 1
+  image:
+    repository: 192.168.45.131:8080/image-project/validation-worker
+    tag: 1.0.0
+    pullPolicy: Always
+  imagePullSecrets: ["regcred"]
+  service:
+    name: validation-worker
+    type: ClusterIP
+    port: 80
+  gateway:
+    parentGatewayName: cilium-gateway
+    pathMatch: /worker/validation-worker
+
+ocr-worker:
+  replicaCount: 1
+  image:
+    repository: 192.168.45.131:8080/image-project/validation-worker
+    tag: 1.0.0
+    pullPolicy: Always
+  imagePullSecrets: ["regcred"]
+  service:
+    name: ocr-worker
+    type: ClusterIP
+    port: 80
+  gateway:
+    parentGatewayName: cilium-gateway
+    pathMatch: /worker/ocr-worker
+
+thumbnail-worker:
+  replicaCount: 1
+  image:
+    repository: 192.168.45.131:8080/image-project/validation-worker
+    tag: 1.0.0
+    pullPolicy: Always
+  imagePullSecrets: ["regcred"]
+  service:
+    name: thumbnail-worker
+    type: ClusterIP
+    port: 80
+  gateway:
+    parentGatewayName: cilium-gateway
+    pathMatch: /worker/thumbnail-worker
