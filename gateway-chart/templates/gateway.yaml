@@ -4,10 +4,12 @@ metadata:
   name: {{ .Values.gateway.name }}
   namespace: {{ .Values.gateway.namespace }}
 spec:
+  {{- if .Values.gateway.addresses }}
   addresses:
   {{- range .Values.gateway.addresses }}
-  - type: {{ .type }}
-    value: {{ .value }}
+    - type: {{ .type }}
+      value: {{ .value }}
+  {{- end }}
   {{- end }}
   gatewayClassName: {{ .Values.gateway.className }}
   listeners:
