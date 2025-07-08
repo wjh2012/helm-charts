@@ -12,6 +12,8 @@ API_SERVER_PORT=6443
 helm install cilium cilium/cilium --version 1.18.0-rc.0 \
   --namespace kube-system \
   --set kubeProxyReplacement=true \
+  --set gatewayAPI.enabled=true \
+  --set gatewayAPI.service.type=NodePort \
   --set k8sServiceHost=${API_SERVER_IP} \
   --set k8sServicePort=${API_SERVER_PORT} \
   --set hubble.ui.enabled=true \
@@ -29,18 +31,6 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.2.0/config/crd/experimental/gateway.networking.k8s.io_tlsroutes.yaml
 
-
-helm upgrade cilium cilium/cilium --version 1.18.0-rc.0 \
-  --namespace kube-system \
-  --reuse-values \
-  --set kubeProxyReplacement=true \
-  --set gatewayAPI.enabled=true
-
-kubectl -n kube-system rollout restart deployment/cilium-operator
-kubectl -n kube-system rollout restart ds/cilium
 cilium status
 
-helm upgrade cilium cilium/cilium --version 1.18.0-rc.0 \
-  --namespace kube-system \
-  --reuse-values \
-  --set gatewayAPI.service.type=NodePort
+helm install cilium-gateway gateway-chart/ -f gateway-chart/values.yaml

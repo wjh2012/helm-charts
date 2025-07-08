@@ -1,24 +1,24 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: {{ .Values.gateway.name }}
-  namespace: {{ .Values.gateway.namespace }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
 spec:
-  {{- if .Values.gateway.addresses }}
+  {{- if .Values.addresses }}
   addresses:
-  {{- range .Values.gateway.addresses }}
+  {{- range .Values.addresses }}
     - type: {{ .type }}
       value: {{ .value }}
   {{- end }}
   {{- end }}
-  gatewayClassName: {{ .Values.gateway.className }}
+  gatewayClassName: {{ .Values.className }}
   listeners:
-    - name: {{ .Values.gateway.listenerName }}
-      port: {{ .Values.gateway.port }}
+    - name: {{ .Values.listenerName }}
+      port: {{ .Values.port }}
       protocol: HTTP
-      {{- if .Values.gateway.hostname }}
-      hostname: "{{ .Values.gateway.hostname }}"
+      {{- if .Values.hostname }}
+      hostname: "{{ .Values.hostname }}"
       {{- end }}
       allowedRoutes:
         namespaces:
-          from: {{ .Values.gateway.allowedRoutesNamespaceFrom }}
+          from: {{ .Values.allowedRoutesNamespaceFrom }}

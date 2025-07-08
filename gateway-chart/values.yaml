@@ -1,9 +1,8 @@
-gateway:
-  name: cilium-gateway
-  namespace: default
-  className: cilium
-  port: 80
-  listenerName: web-gw
-  allowedRoutesNamespaceFrom: Same
-  addresses: []
-  hostname: ""
+name: cilium-gateway
+namespace: default
+className: cilium
+port: 80
+listenerName: web-gw
+allowedRoutesNamespaceFrom: Same
+addresses: []
+hostname: ""
