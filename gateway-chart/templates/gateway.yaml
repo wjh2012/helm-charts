@@ -7,8 +7,8 @@ spec:
   {{- if .Values.addresses }}
   addresses:
   {{- range .Values.addresses }}
-    - type: {{ .type }}
-      value: {{ .value }}
+    - type: {{ .type | quote }}
+      value: {{ .value | quote }}
   {{- end }}
   {{- end }}
   gatewayClassName: {{ .Values.className }}
