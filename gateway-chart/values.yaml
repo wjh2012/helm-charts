@@ -4,3 +4,7 @@ className: cilium
 port: 80
 listenerName: web-gw
 allowedRoutesNamespaceFrom: Same
+
+addresses:
+  - type: NamedAddress
+    value: 192.168.45.131
