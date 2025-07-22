@@ -1,0 +1,9 @@
+ipAddressPools:
+  - name: default-pool
+    addresses:
+      - 192.168.45.200-192.168.45.220
+
+l2Advertisements:
+  - name: default-l2
+    ipAddressPools:
+      - default-pool
