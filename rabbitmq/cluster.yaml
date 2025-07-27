@@ -4,6 +4,14 @@ metadata:
   name: rabbitmq
   namespace: default
 spec:
+  replicas: 1
   override:
-    config:
-      - management.path_prefix = /rabbitmq
+    statefulSet:
+      spec:
+        template:
+          spec:
+            containers:
+              - name: rabbitmq
+                env:
+                  - name: RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS
+                    value: '-rabbitmq_management path_prefix "/rabbitmq"'
