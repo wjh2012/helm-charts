@@ -3,3 +3,7 @@ kind: RabbitmqCluster
 metadata:
   name: rabbitmq
   namespace: default
+spec:
+  override:
+    config:
+      - management.path_prefix = /rabbitmq
