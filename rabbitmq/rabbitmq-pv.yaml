@@ -11,6 +11,6 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/home/wjh2012/rabbitmq/data"
-  claimRef:
-    name: persistence-rabbitmq-server-0
-    namespace: default
+  # claimRef:
+  # name: persistence-rabbitmq-server-0
+  # namespace: default
