@@ -9,6 +9,8 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
+  spec:
+  storageClassName: ""
   hostPath:
     path: "/home/wjh2012/rabbitmq/data"
   # claimRef:
