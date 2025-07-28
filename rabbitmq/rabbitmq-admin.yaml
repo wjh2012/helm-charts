@@ -7,7 +7,3 @@ type: Opaque
 stringData:
   username: admin
   password: admin
-  default_user.conf: |
-    default_user = admin
-    default_pass = admin
-    default_user_tags.administrator = true
