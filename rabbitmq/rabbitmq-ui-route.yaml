@@ -12,7 +12,7 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /rabbitmq
+            value: /rabbitmq/
       filters:
         - type: URLRewrite
           urlRewrite:

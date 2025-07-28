@@ -3,15 +3,15 @@ kind: RabbitmqCluster
 metadata:
   name: rabbitmq
   namespace: default
-spec:
-  replicas: 1
-  override:
-    statefulSet:
-      spec:
-        template:
-          spec:
-            containers:
-              - name: rabbitmq
-                env:
-                  - name: RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS
-                    value: '-rabbitmq_management path_prefix "/rabbitmq"'
+# spec:
+  # replicas: 1
+  # override:
+  #   statefulSet:
+  #     spec:
+  #       template:
+  #         spec:
+  #           containers:
+  #             - name: rabbitmq
+  #               env:
+  #                 - name: RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS
+  #                   value: '-rabbitmq_management path_prefix "/rabbitmq"'
