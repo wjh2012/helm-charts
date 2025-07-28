@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.service.name }}-config
+  namespace: {{ .Values.namespace }}
+data:
+  RUN_MODE: {{ .Values.config.runMode }}
+  RABBITMQ_HOST: {{ .Values.config.rabbitmqHost }}
+  RABBITMQ_PORT: "{{ .Values.config.rabbitmqPort }}"
+  RABBITMQ_IMAGE_VALIDATION_CONSUME_EXCHANGE: {{ .Values.config.consumeExchange }}
+  RABBITMQ_IMAGE_VALIDATION_CONSUME_QUEUE: {{ .Values.config.consumeQueue }}
+  RABBITMQ_IMAGE_VALIDATION_CONSUME_ROUTING_KEY: {{ .Values.config.consumeRoutingKey }}
+  RABBITMQ_IMAGE_VALIDATION_DLX: {{ .Values.config.dlxExchange }}
+  RABBITMQ_IMAGE_VALIDATION_DLX_ROUTING_KEY: {{ .Values.config.dlxRoutingKey }}
+  RABBITMQ_IMAGE_VALIDATION_PUBLISH_EXCHANGE: {{ .Values.config.publishExchange }}
+  RABBITMQ_IMAGE_VALIDATION_PUBLISH_ROUTING_KEY: {{ .Values.config.publishRoutingKey }}
+  MINIO_HOST: {{ .Values.config.minioHost }}
+  MINIO_PORT: "{{ .Values.config.minioPort }}"

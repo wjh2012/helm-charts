@@ -1,14 +1,35 @@
 namespace: default
 replicaCount: 1
+
 image:
   repository: 192.168.45.131:8080/image-project/validation-worker
   tag: latest
   pullPolicy: Always
-imagePullSecrets: ["regcred"]
+
+imagePullSecrets:
+  - regcred
+
 service:
   name: ocr-worker
-  type: ClusterIP
-  port: 80
-gateway:
-  parentGatewayName: cilium-gateway
-  pathMatch: /worker/ocr-worker
+
+config:
+  runMode: develop
+  rabbitmqHost: 192.168.45.131
+  rabbitmqPort: 5672
+  consumeExchange: image.request
+  consumeQueue: image.validation.request.queue
+  consumeRoutingKey: image.validation.request
+  dlxExchange: image.request.dead_letter
+  dlxRoutingKey: dlx.image.validation.request
+  publishExchange: image.response
+  publishRoutingKey: image.validation.response
+  minioHost: 192.168.45.131
+  minioPort: 9000
+
+secrets:
+  rabbitmqUser: admin
+  rabbitmqPassword: admin
+  minioUser: admin
+  minioPassword: adminadmin
+  databaseUrl: sqlite+aiosqlite:///./test.db
+  alembicDatabaseUrl: sqlite:///./test.db
