@@ -3,12 +3,14 @@ kind: RabbitmqCluster
 metadata:
   name: rabbitmq
   namespace: default
-  
+
 spec:
   replicas: 1
   rabbitmq:
     additionalConfig: |
       loopback_users.guest = false
+      default_user =
+      default_pass =
   secretBackend:
     externalSecret:
       name: rabbitmq-admin
