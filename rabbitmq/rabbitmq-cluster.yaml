@@ -3,6 +3,16 @@ kind: RabbitmqCluster
 metadata:
   name: rabbitmq
   namespace: default
+  
+spec:
+  replicas: 1
+  rabbitmq:
+    additionalConfig: |
+      loopback_users.guest = false
+  secretBackend:
+    externalSecret:
+      name: rabbitmq-admin
+
 # spec:
   # replicas: 1
   # override:
