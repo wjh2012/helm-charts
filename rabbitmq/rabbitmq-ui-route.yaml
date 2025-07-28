@@ -13,12 +13,12 @@ spec:
         - path:
             type: PathPrefix
             value: /rabbitmq
-      # filters:
-      #   - type: URLRewrite
-      #     urlRewrite:
-      #       path:
-      #         type: ReplacePrefixMatch
-      #         replacePrefixMatch: /
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
       backendRefs:
         - name: rabbitmq
           port: 15672
