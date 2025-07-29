@@ -2,7 +2,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: minio-ui
-  namespace: default
+  namespace: minio-tenant
 spec:
   parentRefs:
     - name: cilium-gw
@@ -13,6 +13,10 @@ spec:
         - path:
             type: PathPrefix
             value: /minio
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            pathPrefixRewrite: /
       backendRefs:
         - name: myminio-console
-          port: 9443
+          port: 9090
