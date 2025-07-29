@@ -14,11 +14,11 @@ spec:
             type: PathPrefix
             value: /minio
       filters:
-        - type: RequestHeaderModifier
-          requestHeaderModifier:
-            set:
-              - name: :path
-                value: /
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
       backendRefs:
         - name: myminio-console
           port: 9090
