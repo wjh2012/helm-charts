@@ -13,8 +13,8 @@ service:
   name: ocr-worker
 
 config:
-  runMode: develop
-  rabbitmqHost: 192.168.45.131
+  runMode: test
+  rabbitmqHost: rabbitmq-server
   rabbitmqPort: 5672
   consumeExchange: image.request
   consumeQueue: image.validation.request.queue
