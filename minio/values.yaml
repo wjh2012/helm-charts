@@ -330,6 +330,7 @@ tenant:
   # - Specify ``minio: true`` to expose the MinIO S3 API.
   # - Specify ``console: true`` to expose the Console.
   console:
+    enabled: true
     image:
       repository: quay.io/minio/console
       tag: latest
