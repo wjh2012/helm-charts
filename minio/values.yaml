@@ -330,8 +330,7 @@ tenant:
   # - Specify ``minio: true`` to expose the MinIO S3 API.
   # - Specify ``console: true`` to expose the Console.
   # Both fields default to ``false``.
-  exposeServices: 
-    console: true
+  exposeServices: { }
   ###
   # The `Kubernetes Service Account <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/>`__ associated with the Tenant.
   serviceAccountName: ""
