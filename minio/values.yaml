@@ -499,7 +499,7 @@ ingress:
     path: /
     pathType: Prefix
   console:
-    enabled: true
+    enabled: false
     ingressClassName: ""
     labels: { }
     annotations: { }
@@ -507,9 +507,6 @@ ingress:
     host: minio-console.local
     path: /
     pathType: Prefix
-    consoleArgs:
-    - "--address=:9001"
-    - "--no-tls"
 # Use an extraResources template section to include additional Kubernetes resources
 # with the Helm deployment.
 #extraResources:
