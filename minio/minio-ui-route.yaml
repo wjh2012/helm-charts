@@ -12,13 +12,11 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /minio/
+            value: /minio
       filters:
         - type: URLRewrite
           urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /
+            pathPrefixRewrite: /
       backendRefs:
         - name: myminio-console
           port: 9090
