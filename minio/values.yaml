@@ -1,5 +1,8 @@
 # Root key for MinIO Tenant Chart
 tenant:
+  env:
+    - name: CONSOLE_BASE_URL
+      value: /minio
   ###
   # The Tenant name
   #
