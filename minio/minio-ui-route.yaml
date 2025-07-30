@@ -12,7 +12,7 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /minio
+            value: /minio/
       filters:
         - type: URLRewrite
           urlRewrite:
