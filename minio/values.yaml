@@ -94,10 +94,10 @@ tenant:
     accessKey: minio
     secretKey: minio123
     #existingSecret: true
-    
-  configuration:
+
+  configSecret:
     name: minio-env-secret
-    existingSecret: true
+    
   ###
   # Metadata that will be added to the statefulset and pods of all pools
   poolsMetadata:
