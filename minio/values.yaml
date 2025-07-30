@@ -359,7 +359,13 @@ tenant:
   serviceMetadata: { }
   ###
   # Add environment variables to be set in MinIO container (https://github.com/minio/minio/tree/master/docs/config)
-  env: [ ]
+  env:
+    - name: MINIO_ROOT_USER
+      value: "minio"
+    - name: MINIO_ROOT_PASSWORD
+      value: "minio123"
+    - name: MINIO_BROWSER_REDIRECT_URL
+      value: "http://ggomg.duckdns.org:30000/minio/"
   ###
   # PriorityClassName indicates the Pod priority and hence importance of a Pod relative to other Pods.
   # This is applied to MinIO pods only.
@@ -511,15 +517,14 @@ ingress:
     pathType: Prefix
 # Use an extraResources template section to include additional Kubernetes resources
 # with the Helm deployment.
-extraResources:
- - |
-   apiVersion: v1
-   kind: Secret
-   type: Opaque
-   metadata:
-     name: {{ dig "tenant" "configSecret" "name" "" (.Values | merge (dict)) }}
-   stringData:
-     config.env: |-
-       export MINIO_ROOT_USER='minio'
-       export MINIO_ROOT_PASSWORD='minio123'
-       export MINIO_BROWSER_REDIRECT_URL='http://ggomg.duckdns.org:30000/minio/'
+#extraResources:
+#  - |
+#    apiVersion: v1
+#    kind: Secret
+#    type: Opaque
+#    metadata:
+#      name: {{ dig "tenant" "configSecret" "name" "" (.Values | merge (dict)) }}
+#    stringData:
+#      config.env: |-
+#        export MINIO_ROOT_USER='minio'
+#        export MINIO_ROOT_PASSWORD='minio123'
