@@ -21,4 +21,5 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: myminio-console
+          namespace: minio-tenant
           port: 9090
