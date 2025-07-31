@@ -94,7 +94,7 @@ tenant:
     accessKey: minio
     secretKey: minio123
     #existingSecret: true
-    
+
   ###
   # Metadata that will be added to the statefulset and pods of all pools
   poolsMetadata:
@@ -359,13 +359,7 @@ tenant:
   serviceMetadata: { }
   ###
   # Add environment variables to be set in MinIO container (https://github.com/minio/minio/tree/master/docs/config)
-  env:
-    - name: MINIO_ROOT_USER
-      value: "minio"
-    - name: MINIO_ROOT_PASSWORD
-      value: "minio123"
-    - name: MINIO_BROWSER_REDIRECT_URL
-      value: "http://ggomg.duckdns.org:30000/minio/"
+  env: [ ]
   ###
   # PriorityClassName indicates the Pod priority and hence importance of a Pod relative to other Pods.
   # This is applied to MinIO pods only.
